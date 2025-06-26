@@ -51,9 +51,25 @@ The Data was transformed using SQL Server, changing inappropriate data types (co
 
   After checking for Null Values in the above Columns, 153 Null Values were discovered in total. 72 from Profit Column, 63 from Profit Base Margin Column and 12 from Unit Price Column.
 
+![NULL Values for P U_P](https://github.com/user-attachments/assets/cf3f960a-467f-403d-bff7-cb980cb4265d)
 
+### Replacing the Null Values with 0
 
-## Key Performance Indicators (KPIs)
+    update [KMS Sql Case Study]
+    Set Profit = 0
+    where Profit is NULL
+    
+    update [KMS Sql Case Study]
+    Set Unit_Price = 0
+    where Unit_Price is NULL
+    
+    update [KMS Sql Case Study]
+    Set Product_Base_Margin = 0
+    where Product_Base_Margin is NULL
+
+## Main Analysis 
+
+### Key Performance Indicators (KPIs)
   1. Total Sales                  ₦14915600.8311923
   
   2. Total Shippimg Cost           ₦107831.039506674
@@ -62,15 +78,13 @@ The Data was transformed using SQL Server, changing inappropriate data types (co
  
   4. Total Profit                  ₦1523388.97560732
   
-  5. Total Unit Price              ₦750370.228812218![NULL Values for P U_P](https://github.com/user-attachments/assets/cf3f960a-467f-403d-bff7-cb980cb4265d)
-![NULL Values for P U_P](https://github.com/user-attachments/assets/cf3f960a-467f-403d-bff7-cb980cb4265d)
-
+  5. Total Unit Price              ₦750370.228812218
  
   6. Total Orders                  8399
  
   7. Total Product Base Margin     ₦4272.30998769403
 
-The following Queries wrere used the Extract the above KPIs  
+ The following Queries wrere used the Extract the above KPIs  
 
     Select Sum(Sales) As Total_Sales,
     Count(Order_ID) As Total_Orders,
@@ -82,4 +96,75 @@ The following Queries wrere used the Extract the above KPIs
     From [KMS Sql Case Study]
 
 ![KPIs](https://github.com/user-attachments/assets/a14a6241-2630-4ce7-a957-4ed598302674)
+
+### Finding the Product Category with the Highest Sales
+
+    Select top 1 Product_Category, Sum(Sales) As TotalSales
+    From [KMS Sql Case Study]
+    Group By Product_Category
+    Order By TotalSales Desc
+
+### The Highest Sales product is Technology
+
+![Highest Sales Product](https://github.com/user-attachments/assets/a1c22707-bf04-4526-babf-860a1cd44ff9)
+
+### Top 3 Highest Sales Products
+The Top 3 Highest Sales Products are; Technology, Furniture and Office Supplies 
+
+![Top 3 Highest Sales Product](https://github.com/user-attachments/assets/681fc4e3-e14c-4c03-86e9-e1d0acb965c5)
+
+### Finding the TOP 3 and BOTTOM 3 Region in Trems of Sales
+
+###   Top 3 Region by Sales
+        Select top 3 Region, Sum(Sales) As TotalSales
+        From [KMS Sql Case Study]
+        Group By Region
+        Order By TotalSales Desc
+The Top 3 Region by Sales are; West, Ontario and Prarie
+
+![Top 3 Region by Sales](https://github.com/user-attachments/assets/1be4330a-63a5-485c-9088-e8723958155e)
+
+###   Bottom 3 Region by Sales
+          Select top 3 Region, Sum(Sales) As TotalSales
+          From [KMS Sql Case Study]
+          Group By Region
+          Order By TotalSales Asc
+          
+The bottom 3 Region by sales are; Nunavut, Northwest Territories and Yukon, with Nunavut having the lowest.
+
+![Bottom 3 Sales by Region](https://github.com/user-attachments/assets/4f999d08-027d-4a82-8639-ea8ebecfac14)
+
+### Determing the Total sales of appliances in Ontario
+    
+    Select Sum(Sales) As TotalSales
+    From [KMS Sql Case Study]
+    where Product_Category = 'Appliances'
+    And Region = 'Ontario'
+
+They were no Sales of Appliances made in Ontario
+
+![Toatl Sales of Appliances in Ontario](https://github.com/user-attachments/assets/0c2237b9-d314-4aee-b7bf-453bfad2f861)
+
+### Determining the bottom 10 customers by Sales
+    
+    SELECT Top 10 customer_name, SUM(sales) AS total_sales
+    FROM [KMS Sql Case Study]
+    GROUP BY customer_name
+    ORDER BY total_sales ASC
+
+    
+![Bottom 10 Customers by Sales](https://github.com/user-attachments/assets/ba68db6b-44de-464a-af71-446ca88d16f3)
+
+In order to increase the revenue from the bottom 10 customers, the management should Offer exclusive promotions, Target them with discounted bundles
+and Launch a re-engagement campaign with incentives or feedback surveys.
+
+### Determining the Highest shipping cost by shipping method
+
+          Select Ship_Mode, Shipping_Cost
+          From [KMS Sql Case Study]
+          Order by Shipping_Cost Desc
+
+The Most expensive Methoed is Delivery Truck.
+![most espensive shipping mode 1](https://github.com/user-attachments/assets/6a8ba052-3e2a-49fd-aed7-322eaee4f9ba)
+
 
