@@ -45,9 +45,9 @@ The Data was transformed using SQL Server, changing inappropriate data types (co
 
 ## Checking for null values in "PROFIT, PRODUCT BASE MARGIN and UNIT PRICE COLUMNS"
 
-    select * from [KMS Sql Case Study]
-    Where Product_Base_Margin Is NULL Or Profit is NULL Or
-    Unit_Price is NULL
+                  select * from [KMS Sql Case Study]
+                  Where Product_Base_Margin Is NULL Or Profit is NULL Or
+                  Unit_Price is NULL
 
   After checking for Null Values in the above Columns, 153 Null Values were discovered in total. 72 from Profit Column, 63 from Profit Base Margin Column and 12 from Unit Price Column.
 
@@ -55,17 +55,17 @@ The Data was transformed using SQL Server, changing inappropriate data types (co
 
 ### Replacing the Null Values with 0
 
-    update [KMS Sql Case Study]
-    Set Profit = 0
-    where Profit is NULL
-    
-    update [KMS Sql Case Study]
-    Set Unit_Price = 0
-    where Unit_Price is NULL
-    
-    update [KMS Sql Case Study]
-    Set Product_Base_Margin = 0
-    where Product_Base_Margin is NULL
+                  update [KMS Sql Case Study]
+                  Set Profit = 0
+                  where Profit is NULL
+                  
+                  update [KMS Sql Case Study]
+                  Set Unit_Price = 0
+                  where Unit_Price is NULL
+                  
+                  update [KMS Sql Case Study]
+                  Set Product_Base_Margin = 0
+                  where Product_Base_Margin is NULL
 
 ## Main Analysis 
 
@@ -86,23 +86,23 @@ The Data was transformed using SQL Server, changing inappropriate data types (co
 
  The following Queries wrere used the Extract the above KPIs  
 
-    Select Sum(Sales) As Total_Sales,
-    Count(Order_ID) As Total_Orders,
-    Sum(Profit) As Total_Profit,
-    Sum(Shipping_Cost) As Total_Shipping_Cost,
-    Sum(Discount) As Total_Discount,
-    Sum(Unit_Price) As Total_Unit_Price,
-    Sum(Product_Base_Margin) As Toatl_Product_Base_Margin
-    From [KMS Sql Case Study]
+                  Select Sum(Sales) As Total_Sales,
+                  Count(Order_ID) As Total_Orders,
+                  Sum(Profit) As Total_Profit,
+                  Sum(Shipping_Cost) As Total_Shipping_Cost,
+                  Sum(Discount) As Total_Discount,
+                  Sum(Unit_Price) As Total_Unit_Price,
+                  Sum(Product_Base_Margin) As Toatl_Product_Base_Margin
+                  From [KMS Sql Case Study]
 
 ![KPIs](https://github.com/user-attachments/assets/a14a6241-2630-4ce7-a957-4ed598302674)
 
 ### Finding the Product Category with the Highest Sales
 
-    Select top 1 Product_Category, Sum(Sales) As TotalSales
-    From [KMS Sql Case Study]
-    Group By Product_Category
-    Order By TotalSales Desc
+                  Select top 1 Product_Category, Sum(Sales) As TotalSales
+                  From [KMS Sql Case Study]
+                  Group By Product_Category
+                  Order By TotalSales Desc
 
 ### The Highest Sales product is Technology
 
@@ -116,19 +116,19 @@ The Top 3 Highest Sales Products are; Technology, Furniture and Office Supplies
 ### Finding the TOP 3 and BOTTOM 3 Region in Trems of Sales
 
 ###   Top 3 Region by Sales
-        Select top 3 Region, Sum(Sales) As TotalSales
-        From [KMS Sql Case Study]
-        Group By Region
-        Order By TotalSales Desc
+                Select top 3 Region, Sum(Sales) As TotalSales
+                From [KMS Sql Case Study]
+                Group By Region
+                Order By TotalSales Desc
 The Top 3 Region by Sales are; West, Ontario and Prarie
 
 ![Top 3 Region by Sales](https://github.com/user-attachments/assets/1be4330a-63a5-485c-9088-e8723958155e)
 
 ###   Bottom 3 Region by Sales
-          Select top 3 Region, Sum(Sales) As TotalSales
-          From [KMS Sql Case Study]
-          Group By Region
-          Order By TotalSales Asc
+                Select top 3 Region, Sum(Sales) As TotalSales
+                From [KMS Sql Case Study]
+                Group By Region
+                Order By TotalSales Asc
           
 The bottom 3 Region by sales are; Nunavut, Northwest Territories and Yukon, with Nunavut having the lowest.
 
@@ -136,10 +136,10 @@ The bottom 3 Region by sales are; Nunavut, Northwest Territories and Yukon, with
 
 ### Determing the Total sales of appliances in Ontario
     
-    Select Sum(Sales) As TotalSales
-    From [KMS Sql Case Study]
-    where Product_Category = 'Appliances'
-    And Region = 'Ontario'
+              Select Sum(Sales) As TotalSales
+              From [KMS Sql Case Study]
+              where Product_Category = 'Appliances'
+              And Region = 'Ontario'
 
 They were no Sales of Appliances made in Ontario
 
@@ -147,10 +147,10 @@ They were no Sales of Appliances made in Ontario
 
 ### Determining the bottom 10 customers by Sales
     
-    SELECT Top 10 customer_name, SUM(sales) AS total_sales
-    FROM [KMS Sql Case Study]
-    GROUP BY customer_name
-    ORDER BY total_sales ASC
+            SELECT Top 10 customer_name, SUM(sales) AS total_sales
+            FROM [KMS Sql Case Study]
+            GROUP BY customer_name
+            ORDER BY total_sales ASC
 
     
 ![Bottom 10 Customers by Sales](https://github.com/user-attachments/assets/ba68db6b-44de-464a-af71-446ca88d16f3)
@@ -160,7 +160,7 @@ and Launch a re-engagement campaign with incentives or feedback surveys.
 
 ### Determining the Highest shipping cost by shipping method
 
-          Select Ship_Mode, Shipping_Cost
+          Select Top 1 Ship_Mode, Shipping_Cost
           From [KMS Sql Case Study]
           Order by Shipping_Cost Desc
 
@@ -168,3 +168,80 @@ The Most expensive Methoed is Delivery Truck.
 ![most espensive shipping mode 1](https://github.com/user-attachments/assets/6a8ba052-3e2a-49fd-aed7-322eaee4f9ba)
 
 
+### The Most valuable Customers and the product or Services there purchase
+
+                Select * from [KMS Sql Case Study]
+                Select Top 10 Customer_Name, Product_Name, Sum(Sales) As Total_Spent
+                From [KMS Sql Case Study]
+                Group By Customer_Name, Product_Name
+                Order By Total_Spent Desc
+
+![Most Valuable Customers and product purchased](https://github.com/user-attachments/assets/f291f18c-3e2a-4b17-aea0-80316ed6ca2d)
+
+
+### Small Business Customer with the highest Sales
+
+              SELECT Top 10 Customer_Name, SUM(Sales) AS Total_sales
+              FROM [KMS Sql Case Study]
+              WHERE Customer_Segment = 'Small Business'
+              GROUP BY Customer_Name
+              ORDER BY Total_sales DESC
+
+![Small Business Customer with the highest Sales](https://github.com/user-attachments/assets/fcec9ae0-fa54-406e-a43a-fa08ec8c70c4)
+
+
+### Corporate customer with the most placed number of orders in 2009 - 2012
+
+              Select Top 1 Customer_Name, Count(Order_ID) As Total_Orders
+              From [KMS Sql Case Study]
+              WHERE Customer_Segment = 'Corporate'
+              And Order_Date Between '2009-01-01' and '2012-12-31'
+              Group By Customer_Name
+              Order By Total_Orders Desc
+
+![Corporate Customer with the most placed orders ](https://github.com/user-attachments/assets/4236981b-4065-4961-9151-fd81487d54df)
+
+
+### Top 5 Corperate customer that placed the most number of orders in 2009 - 2012
+
+              Select Top 5 Customer_Name, Count(Order_ID) As Total_Orders
+              From [KMS Sql Case Study]
+              WHERE Customer_Segment = 'Corporate'
+              And Order_Date Between '2009-01-01' and '2012-12-31'
+              Group By Customer_Name
+              Order By Total_Orders Desc
+
+  ![Corporate Customer with the most placed orders 2 ](https://github.com/user-attachments/assets/aaf62788-bb5c-4bb3-8a79-31f510a753e3)
+
+### Most Profitable Consumer Customer
+
+                SELECT Top 1 Customer_Name, SUM(Profit) AS total_profit
+                FROM [KMS Sql Case Study]
+                WHERE Customer_Segment = 'Consumer'
+                GROUP BY Customer_Name
+                ORDER BY total_profit DESC
+
+![Most Profitable Consumer Customer 1 ](https://github.com/user-attachments/assets/3af24b20-8115-40c2-b8af-baa64a1a166f)
+
+### Top 5 Most Profitable Consumer Customer
+
+                SELECT Top 5 Customer_Name, SUM(Profit) AS total_profit
+                FROM [KMS Sql Case Study]
+                WHERE Customer_Segment = 'Consumer'
+                GROUP BY Customer_Name
+                ORDER BY total_profit DESC
+
+![Most Profitable Consumer Customer ](https://github.com/user-attachments/assets/f6b08ed2-be24-4fda-860e-07df4e73f84b)
+
+### Customer that returned items, and the segment they belong to
+      
+#### Joining the two tables (KMS Sql Case Study and Order_Status) to determine which customer returned items and from which Segment.
+
+                SELECT DISTINCT [KMS Sql Case Study].customer_name, [KMS Sql Case Study].customer_segment
+                FROM [KMS Sql Case Study]
+                JOIN Order_Status 
+                ON [KMS Sql Case Study].Order_ID = Order_Status.Order_ID
+                WHERE [Status] = 'Returned'
+
+
+![Returned Orders ](https://github.com/user-attachments/assets/15a541ad-2bae-4b63-aeb7-47bc314f92e2)
