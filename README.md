@@ -53,36 +53,36 @@ The Data was transformed using SQL Server, changing inappropriate data types (co
 
 ![NULL Values for P U_P](https://github.com/user-attachments/assets/cf3f960a-467f-403d-bff7-cb980cb4265d)
 
-### Replacing the Null Values with 0
+### Replacing the Null Values with Mean
 
                   update [KMS Sql Case Study]
-                  Set Profit = 0
+                  Set Profit = 181.18
                   where Profit is NULL
                   
                   update [KMS Sql Case Study]
-                  Set Unit_Price = 0
+                  Set Unit_Price = 89.35
                   where Unit_Price is NULL
                   
                   update [KMS Sql Case Study]
-                  Set Product_Base_Margin = 0
+                  Set Product_Base_Margin = 0.51
                   where Product_Base_Margin is NULL
 
 ## Main Analysis 
 
 ### Key Performance Indicators (KPIs)
-  1. Total Sales                  ₦14915600.8311923
+  1. Total Sales                   ₦ 14,915,600.83
   
-  2. Total Shippimg Cost           ₦107831.039506674
- 
-  3. Total Discount                ₦417.190000595525
- 
-  4. Total Profit                  ₦1523388.97560732
+  2. Total Shippimg Cost           ₦ 107,831.04
   
-  5. Total Unit Price              ₦750370.228812218
+  3. Total Profit                  ₦ 1,537,521.02
+ 
+  4. Total Discount                ₦ 417.19
+  
+  5. Total Unit Price              ₦ 751442.43
  
   6. Total Orders                  8399
  
-  7. Total Product Base Margin     ₦4272.30998769403
+  7. Total Product Base Margin     ₦ 4,304.44
 
  The following Queries wrere used the Extract the above KPIs  
 
@@ -95,7 +95,8 @@ The Data was transformed using SQL Server, changing inappropriate data types (co
                   Sum(Product_Base_Margin) As Toatl_Product_Base_Margin
                   From [KMS Sql Case Study]
 
-![KPIs](https://github.com/user-attachments/assets/a14a6241-2630-4ce7-a957-4ed598302674)
+
+![KPI](https://github.com/user-attachments/assets/22bebfc3-75d6-4da4-a425-765417d09ec1)
 
 ### Finding the Product Category with the Highest Sales
 
@@ -106,12 +107,21 @@ The Data was transformed using SQL Server, changing inappropriate data types (co
 
 ### The Highest Sales product is Technology
 
-![Highest Sales Product](https://github.com/user-attachments/assets/a1c22707-bf04-4526-babf-860a1cd44ff9)
+
+![Top 1 Highest Sales product](https://github.com/user-attachments/assets/0b88453a-71bf-4df7-b028-7e8ca6aea6f4)
+
 
 ### Top 3 Highest Sales Products
+
+                    Select top 3 Product_Category, Sum(Sales) As TotalSales
+                    From [KMS Sql Case Study]
+                    Group By Product_Category
+                    Order By TotalSales Desc
+
 The Top 3 Highest Sales Products are; Technology, Furniture and Office Supplies 
 
-![Top 3 Highest Sales Product](https://github.com/user-attachments/assets/681fc4e3-e14c-4c03-86e9-e1d0acb965c5)
+![Top 3 highest sales product](https://github.com/user-attachments/assets/0a69691b-0f16-4e81-b14a-c45cc1dec457)
+
 
 ### Finding the TOP 3 and BOTTOM 3 Region in Trems of Sales
 
@@ -120,9 +130,11 @@ The Top 3 Highest Sales Products are; Technology, Furniture and Office Supplies
                 From [KMS Sql Case Study]
                 Group By Region
                 Order By TotalSales Desc
+
 The Top 3 Region by Sales are; West, Ontario and Prarie
 
-![Top 3 Region by Sales](https://github.com/user-attachments/assets/1be4330a-63a5-485c-9088-e8723958155e)
+![Top 3 Region by sales ](https://github.com/user-attachments/assets/42c5716f-f237-4b96-98ff-0f1556e25b85)
+
 
 ###   Bottom 3 Region by Sales
                 Select top 3 Region, Sum(Sales) As TotalSales
@@ -132,9 +144,9 @@ The Top 3 Region by Sales are; West, Ontario and Prarie
           
 The bottom 3 Region by sales are; Nunavut, Northwest Territories and Yukon, with Nunavut having the lowest.
 
-![Bottom 3 Sales by Region](https://github.com/user-attachments/assets/4f999d08-027d-4a82-8639-ea8ebecfac14)
+![Bottom 3 Region by sales ](https://github.com/user-attachments/assets/24701c98-b035-4775-b265-8e9575e2b974)
 
-### Determing the Total sales of appliances in Ontario
+### Determining the Total sales of appliances in Ontario
     
               Select Sum(Sales) As TotalSales
               From [KMS Sql Case Study]
@@ -143,7 +155,7 @@ The bottom 3 Region by sales are; Nunavut, Northwest Territories and Yukon, with
 
 They were no Sales of Appliances made in Ontario
 
-![Toatl Sales of Appliances in Ontario](https://github.com/user-attachments/assets/0c2237b9-d314-4aee-b7bf-453bfad2f861)
+![Total sales of Appliances in Ontario](https://github.com/user-attachments/assets/aa6649a9-f90d-4ee8-8a8f-2516724a9b52)
 
 ### Determining the bottom 10 customers by Sales
     
@@ -153,7 +165,7 @@ They were no Sales of Appliances made in Ontario
             ORDER BY total_sales ASC
 
     
-![Bottom 10 Customers by Sales](https://github.com/user-attachments/assets/ba68db6b-44de-464a-af71-446ca88d16f3)
+![Bottom 10 Customers by sales ](https://github.com/user-attachments/assets/b83836f4-c78a-4d16-b660-6aed41f935d6)
 
 In order to increase the revenue from the bottom 10 customers, the management should Offer exclusive promotions, Target them with discounted bundles
 and Launch a re-engagement campaign with incentives or feedback surveys.
@@ -165,8 +177,10 @@ and Launch a re-engagement campaign with incentives or feedback surveys.
           Order by Shipping_Cost Desc
 
 The Most expensive Methoed is Delivery Truck.
-![most espensive shipping mode 1](https://github.com/user-attachments/assets/6a8ba052-3e2a-49fd-aed7-322eaee4f9ba)
 
+![Highest Shipping cost by shipping method](https://github.com/user-attachments/assets/e18c3766-3c00-40b6-809f-4d440d1eb3ad)
+
+![Top 1 Highest shipping cost by shipping method ](https://github.com/user-attachments/assets/cb7cf773-683c-4890-af0b-5715408516e3)
 
 ### The Most valuable Customers and the product or Services there purchase
 
@@ -176,7 +190,7 @@ The Most expensive Methoed is Delivery Truck.
                 Group By Customer_Name, Product_Name
                 Order By Total_Spent Desc
 
-![Most Valuable Customers and product purchased](https://github.com/user-attachments/assets/f291f18c-3e2a-4b17-aea0-80316ed6ca2d)
+![Valuable customers and product purchased ](https://github.com/user-attachments/assets/81f7cbec-3e2f-4e6b-8434-91a2a3c7f27e)
 
 
 ### Small Business Customer with the highest Sales
@@ -187,7 +201,9 @@ The Most expensive Methoed is Delivery Truck.
               GROUP BY Customer_Name
               ORDER BY Total_sales DESC
 
-![Small Business Customer with the highest Sales](https://github.com/user-attachments/assets/fcec9ae0-fa54-406e-a43a-fa08ec8c70c4)
+![Small Business Custom Top 1](https://github.com/user-attachments/assets/9d815a78-ec7a-43ed-9c66-12c54a756a98)
+
+![Small Business with Highest Sales ](https://github.com/user-attachments/assets/f2b8cabc-8874-40bf-9c56-8e31d8e9134f)
 
 
 ### Corporate customer with the most placed number of orders in 2009 - 2012
@@ -199,7 +215,7 @@ The Most expensive Methoed is Delivery Truck.
               Group By Customer_Name
               Order By Total_Orders Desc
 
-![Corporate Customer with the most placed orders ](https://github.com/user-attachments/assets/4236981b-4065-4961-9151-fd81487d54df)
+![Corporate Customers Top 1](https://github.com/user-attachments/assets/9b487ac6-031c-45bd-b899-e2046c2ffb5a)
 
 
 ### Top 5 Corperate customer that placed the most number of orders in 2009 - 2012
@@ -211,7 +227,8 @@ The Most expensive Methoed is Delivery Truck.
               Group By Customer_Name
               Order By Total_Orders Desc
 
-  ![Corporate Customer with the most placed orders 2 ](https://github.com/user-attachments/assets/aaf62788-bb5c-4bb3-8a79-31f510a753e3)
+ ![Corporate Customers Top 5](https://github.com/user-attachments/assets/d876d0fb-9cc1-429a-ace0-2b8f373ea7e3)
+
 
 ### Most Profitable Consumer Customer
 
@@ -221,7 +238,7 @@ The Most expensive Methoed is Delivery Truck.
                 GROUP BY Customer_Name
                 ORDER BY total_profit DESC
 
-![Most Profitable Consumer Customer 1 ](https://github.com/user-attachments/assets/3af24b20-8115-40c2-b8af-baa64a1a166f)
+![Profitable Customers Top 1](https://github.com/user-attachments/assets/c825f90a-e58f-46c7-9229-d5a0c5b08fa0)
 
 ### Top 5 Most Profitable Consumer Customer
 
@@ -231,7 +248,7 @@ The Most expensive Methoed is Delivery Truck.
                 GROUP BY Customer_Name
                 ORDER BY total_profit DESC
 
-![Most Profitable Consumer Customer ](https://github.com/user-attachments/assets/f6b08ed2-be24-4fda-860e-07df4e73f84b)
+![Profitable customers top 5](https://github.com/user-attachments/assets/b0afff81-73bd-4a4c-8733-280e10263a79)
 
 ### Customer that returned items, and the segment they belong to
       
@@ -243,5 +260,10 @@ The Most expensive Methoed is Delivery Truck.
                 ON [KMS Sql Case Study].Order_ID = Order_Status.Order_ID
                 WHERE [Status] = 'Returned'
 
+![Returned Orders ](https://github.com/user-attachments/assets/784c47d8-dbeb-45d7-b93e-37d5a081f35d)
 
-![Returned Orders ](https://github.com/user-attachments/assets/15a541ad-2bae-4b63-aeb7-47bc314f92e2)
+### QUESTION 10
+
+![Q 10](https://github.com/user-attachments/assets/fb5e8644-cbd9-4a56-a515-542f9b6ea83c)
+
+
