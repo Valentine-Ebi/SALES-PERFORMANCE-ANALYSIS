@@ -98,7 +98,7 @@ The Data was transformed using SQL Server, changing inappropriate data types (co
 
 ![KPI](https://github.com/user-attachments/assets/22bebfc3-75d6-4da4-a425-765417d09ec1)
 
-### Finding the Product Category with the Highest Sales
+### 1.0         Finding the Product Category with the Highest Sales
 
                   Select top 1 Product_Category, Sum(Sales) As TotalSales
                   From [KMS Sql Case Study]
@@ -111,7 +111,7 @@ The Data was transformed using SQL Server, changing inappropriate data types (co
 ![Top 1 Highest Sales product](https://github.com/user-attachments/assets/0b88453a-71bf-4df7-b028-7e8ca6aea6f4)
 
 
-### Top 3 Highest Sales Products
+### 1.1         Top 3 Highest Sales Products
 
                     Select top 3 Product_Category, Sum(Sales) As TotalSales
                     From [KMS Sql Case Study]
@@ -123,9 +123,9 @@ The Top 3 Highest Sales Products are; Technology, Furniture and Office Supplies
 ![Top 3 highest sales product](https://github.com/user-attachments/assets/0a69691b-0f16-4e81-b14a-c45cc1dec457)
 
 
-### Finding the TOP 3 and BOTTOM 3 Region in Trems of Sales
+### 2.0 Finding the TOP 3 and BOTTOM 3 Region in Trems of Sales
 
-###   Top 3 Region by Sales
+####   2.1       Top 3 Region by Sales
                 Select top 3 Region, Sum(Sales) As TotalSales
                 From [KMS Sql Case Study]
                 Group By Region
@@ -136,7 +136,7 @@ The Top 3 Region by Sales are; West, Ontario and Prarie
 ![Top 3 Region by sales ](https://github.com/user-attachments/assets/42c5716f-f237-4b96-98ff-0f1556e25b85)
 
 
-###   Bottom 3 Region by Sales
+####   2.2        Bottom 3 Region by Sales
                 Select top 3 Region, Sum(Sales) As TotalSales
                 From [KMS Sql Case Study]
                 Group By Region
@@ -146,7 +146,7 @@ The bottom 3 Region by sales are; Nunavut, Northwest Territories and Yukon, with
 
 ![Bottom 3 Region by sales ](https://github.com/user-attachments/assets/24701c98-b035-4775-b265-8e9575e2b974)
 
-### Determining the Total sales of appliances in Ontario
+### 3.0         Determining the Total sales of appliances in Ontario
     
               Select Sum(Sales) As TotalSales
               From [KMS Sql Case Study]
@@ -157,7 +157,7 @@ They were no Sales of Appliances made in Ontario
 
 ![Total sales of Appliances in Ontario](https://github.com/user-attachments/assets/aa6649a9-f90d-4ee8-8a8f-2516724a9b52)
 
-### Determining the bottom 10 customers by Sales
+### 4.0       Determining the bottom 10 customers by Sales
     
             SELECT Top 10 customer_name, SUM(sales) AS total_sales
             FROM [KMS Sql Case Study]
@@ -167,10 +167,9 @@ They were no Sales of Appliances made in Ontario
     
 ![Bottom 10 Customers by sales ](https://github.com/user-attachments/assets/b83836f4-c78a-4d16-b660-6aed41f935d6)
 
-In order to increase the revenue from the bottom 10 customers, the management should Offer exclusive promotions, Target them with discounted bundles
-and Launch a re-engagement campaign with incentives or feedback surveys.
+To boost revenue from the bottom 10 customers, KMS should implement targeted engagement strategies. Personalized email campaigns with exclusive discounts or product bundles can re-ignite interest. Additionally, offering loyalty rewards or limited-time promotions may encourage repeat purchases. KMS should also analyze these customers’ previous orders to recommend relevant products and understand purchasing barriers through short surveys. Providing flexible payment or delivery options could further improve retention. By nurturing these low-engagement clients with strategic incentives and tailored communication, KMS can gradually increase their lifetime value and strengthen customer loyalty across all segments.
 
-### Determining the Highest shipping cost by shipping method
+### 5.0        Determining the Highest shipping cost by shipping method
 
           Select Top 1 Ship_Mode, Shipping_Cost
           From [KMS Sql Case Study]
@@ -182,7 +181,7 @@ The Most expensive Methoed is Delivery Truck.
 
 ![Top 1 Highest shipping cost by shipping method ](https://github.com/user-attachments/assets/cb7cf773-683c-4890-af0b-5715408516e3)
 
-### The Most valuable Customers and the product or Services there purchase
+### 6.0         The Most valuable Customers and the product or Services there purchase
 
                 Select * from [KMS Sql Case Study]
                 Select Top 10 Customer_Name, Product_Name, Sum(Sales) As Total_Spent
@@ -193,7 +192,7 @@ The Most expensive Methoed is Delivery Truck.
 ![Valuable customers and product purchased ](https://github.com/user-attachments/assets/81f7cbec-3e2f-4e6b-8434-91a2a3c7f27e)
 
 
-### Small Business Customer with the highest Sales
+### 7.0       Small Business Customer with the highest Sales
 
               SELECT Top 10 Customer_Name, SUM(Sales) AS Total_sales
               FROM [KMS Sql Case Study]
@@ -206,7 +205,7 @@ The Most expensive Methoed is Delivery Truck.
 ![Small Business with Highest Sales ](https://github.com/user-attachments/assets/f2b8cabc-8874-40bf-9c56-8e31d8e9134f)
 
 
-### Corporate customer with the most placed number of orders in 2009 - 2012
+### 8.0       Corporate customer with the most placed number of orders in 2009 - 2012
 
               Select Top 1 Customer_Name, Count(Order_ID) As Total_Orders
               From [KMS Sql Case Study]
@@ -218,7 +217,7 @@ The Most expensive Methoed is Delivery Truck.
 ![Corporate Customers Top 1](https://github.com/user-attachments/assets/9b487ac6-031c-45bd-b899-e2046c2ffb5a)
 
 
-### Top 5 Corperate customer that placed the most number of orders in 2009 - 2012
+### 8.1       Top 5 Corperate customer that placed the most number of orders in 2009 - 2012
 
               Select Top 5 Customer_Name, Count(Order_ID) As Total_Orders
               From [KMS Sql Case Study]
@@ -230,7 +229,7 @@ The Most expensive Methoed is Delivery Truck.
  ![Corporate Customers Top 5](https://github.com/user-attachments/assets/d876d0fb-9cc1-429a-ace0-2b8f373ea7e3)
 
 
-### Most Profitable Consumer Customer
+### 9.0         Most Profitable Consumer Customer
 
                 SELECT Top 1 Customer_Name, SUM(Profit) AS total_profit
                 FROM [KMS Sql Case Study]
@@ -240,7 +239,7 @@ The Most expensive Methoed is Delivery Truck.
 
 ![Profitable Customers Top 1](https://github.com/user-attachments/assets/c825f90a-e58f-46c7-9229-d5a0c5b08fa0)
 
-### Top 5 Most Profitable Consumer Customer
+### 9.1         Top 5 Most Profitable Consumer Customer
 
                 SELECT Top 5 Customer_Name, SUM(Profit) AS total_profit
                 FROM [KMS Sql Case Study]
@@ -250,7 +249,7 @@ The Most expensive Methoed is Delivery Truck.
 
 ![Profitable customers top 5](https://github.com/user-attachments/assets/b0afff81-73bd-4a4c-8733-280e10263a79)
 
-### Customer that returned items, and the segment they belong to
+### 10.0         Customer that returned items, and the segment they belong to
       
 #### Joining the two tables (KMS Sql Case Study and Order_Status) to determine which customer returned items and from which Segment.
 
@@ -262,8 +261,19 @@ The Most expensive Methoed is Delivery Truck.
 
 ![Returned Orders ](https://github.com/user-attachments/assets/784c47d8-dbeb-45d7-b93e-37d5a081f35d)
 
-### QUESTION 10
+  ### 11.0         If the delivery truck is the most economical but the slowest shipping method and Express Air is the fastest but the most expensive one, do you think the company appropriately spent shipping costs based on the Order Priority? Explain your answer
+
+
+                SELECT 
+                    Order_Priority,
+                    Ship_Mode,
+                    SUM(Shipping_Cost) AS Total_Shipping_Cost
+                FROM [KMS Sql Case Study]
+                GROUP BY Order_Priority, Ship_Mode
+                ORDER BY Order_Priority, Ship_Mode
+
 
 ![Q 10](https://github.com/user-attachments/assets/fb5e8644-cbd9-4a56-a515-542f9b6ea83c)
 
+Based on the analysis of KMS’s shipping costs relative to order priority, it’s evident that the company did not consistently align its shipping strategy with urgency levels. Express Air, the fastest and most expensive option, was used not only for Critical and High priority orders but also for Low and Not Specified ones, which is not cost-efficient. On the other hand, Delivery Truck, the slowest and cheapest method, was also used for Critical orders, potentially delaying urgent deliveries. While Regular Air was used fairly evenly, the absence of a clear shipping policy by priority suggests inefficiencies. An optimal strategy would restrict Express Air to truly urgent shipments and assign Delivery Truck only to low-priority orders. Aligning shipping modes with order urgency would significantly reduce costs without compromising service quality. KMS should consider implementing rules-based shipping decisions to optimize logistics performance and improve profitability.
 
