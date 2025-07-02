@@ -175,7 +175,7 @@ To boost revenue from the bottom 10 customers, KMS should implement targeted eng
           From [KMS Sql Case Study]
           Order by Shipping_Cost Desc
 
-The Most expensive Methoed is Delivery Truck.
+The Highest Cost Shipping Methoed is **Delivery Truck**.
 
 ![Highest Shipping cost by shipping method](https://github.com/user-attachments/assets/e18c3766-3c00-40b6-809f-4d440d1eb3ad)
 
@@ -258,6 +258,8 @@ The Most expensive Methoed is Delivery Truck.
                 JOIN Order_Status 
                 ON [KMS Sql Case Study].Order_ID = Order_Status.Order_ID
                 WHERE [Status] = 'Returned'
+
+From the analysis, 419 Customers Actually returned their Goods.
 
 ![Returned Orders ](https://github.com/user-attachments/assets/784c47d8-dbeb-45d7-b93e-37d5a081f35d)
 
