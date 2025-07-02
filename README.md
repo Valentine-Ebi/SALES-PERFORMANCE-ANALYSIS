@@ -277,3 +277,10 @@ The Most expensive Methoed is Delivery Truck.
 
 Based on the analysis of KMS’s shipping costs relative to order priority, it’s evident that the company did not consistently align its shipping strategy with urgency levels. Express Air, the fastest and most expensive option, was used not only for Critical and High priority orders but also for Low and Not Specified ones, which is not cost-efficient. On the other hand, Delivery Truck, the slowest and cheapest method, was also used for Critical orders, potentially delaying urgent deliveries. While Regular Air was used fairly evenly, the absence of a clear shipping policy by priority suggests inefficiencies. An optimal strategy would restrict Express Air to truly urgent shipments and assign Delivery Truck only to low-priority orders. Aligning shipping modes with order urgency would significantly reduce costs without compromising service quality. KMS should consider implementing rules-based shipping decisions to optimize logistics performance and improve profitability.
 
+### For the complete SQL Queries, click on the link below
+[https://drive.google.com/file/d/1k1lgpUmXcsUzNEON6nUwU3_N65gWNbQH/view?usp=drive_link]
+
+### CONTACT ME
+To contact or connent with me, you can reach out via LINKEDIN [hppts://linkedin.com/in/valentineebi]
+
+Email [ebivalentine6@gmail.com]
