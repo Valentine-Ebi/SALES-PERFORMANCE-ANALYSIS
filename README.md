@@ -4,8 +4,8 @@
 Kultra Mega Stores (KMS), headquartered in Lagos, specialises in office supplies and furniture. Its customer base includes individual consumers, small businesses (retail), and large corporate clients (wholesale) across Lagos, Nigeria. 
 
 ## PROJECT OVERVIEW
-This project aims to analyse the sales performance of Kulta Mega Stores in the Abuja Division to present key findings, insights and recommendations that will support business decision making. Two Datasets (**C** and **Order_Status**)
-are used for this analysis. The **KMS Sql Case Study** contains all the information about the **Customers** and the **Products**, while the  **Order_Status** contained informations of Customers that returned **Orders**. 
+This project aims to analyse the sales performance of Kulta Mega Stores in the Abuja Division to present key findings, insights and recommendations that will support business decision making. Two Datasets (**KMS Sql Case Study** and **Order_Status**)
+were used for this analysis. The **KMS Sql Case Study** contained all the information about the **Customers** and the **Products**, while the  **Order_Status** contained informations of Customers that returned **Orders**, their **Order Status and  IDs**. 
 
 ## Key focus areas include:
   1. Which product category had the highest sales? 
@@ -172,13 +172,19 @@ To boost revenue from the bottom 10 customers, KMS should implement targeted eng
 
 ### 5.0        Determining the Highest shipping cost by shipping method
 
-          Select Top 1 Ship_Mode, Shipping_Cost
+          Select Ship_Mode, Shipping_Cost
           From [KMS Sql Case Study]
           Order by Shipping_Cost Desc
 
 The Highest Cost Shipping Methoed is **Delivery Truck**.
 
 ![Highest Shipping cost by shipping method](https://github.com/user-attachments/assets/e18c3766-3c00-40b6-809f-4d440d1eb3ad)
+
+##### Top 1
+
+          Select Top 1 Ship_Mode, Shipping_Cost
+          From [KMS Sql Case Study]
+          Order by Shipping_Cost Desc
 
 ![Top 1 Highest shipping cost by shipping method ](https://github.com/user-attachments/assets/cb7cf773-683c-4890-af0b-5715408516e3)
 
@@ -197,7 +203,7 @@ The Highest Cost Shipping Methoed is **Delivery Truck**.
 
 ### 7.0       Small Business Customer with the highest Sales
 
-#####         Top 10 Small Business Customer 
+#####         Top 1 Small Business Customer 
 
               SELECT Top 1 Customer_Name, SUM(Sales) AS Total_sales
               FROM [KMS Sql Case Study]
