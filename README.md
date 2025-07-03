@@ -4,7 +4,8 @@
 Kultra Mega Stores (KMS), headquartered in Lagos, specialises in office supplies and furniture. Its customer base includes individual consumers, small businesses (retail), and large corporate clients (wholesale) across Lagos, Nigeria. 
 
 ## PROJECT OVERVIEW
-This project aims to analyse the sales performance of Kulta Mega Stores in the Abuja Division to present key findings, insights and recommendations that will support business decision making. 
+This project aims to analyse the sales performance of Kulta Mega Stores in the Abuja Division to present key findings, insights and recommendations that will support business decision making. Two Datasets (**C** and **Order_Status**)
+are used for this analysis. The **KMS Sql Case Study** contains all the information about the **Customers** and the **Products**, while the  **Order_Status** contained informations of Customers that returned **Orders**. 
 
 ## Key focus areas include:
   1. Which product category had the highest sales? 
@@ -183,6 +184,8 @@ The Highest Cost Shipping Methoed is **Delivery Truck**.
 
 ### 6.0         The Most valuable Customers and the product or Services there purchase
 
+##### Top 10 most valuable Customer
+
                 Select * from [KMS Sql Case Study]
                 Select Top 10 Customer_Name, Product_Name, Sum(Sales) As Total_Spent
                 From [KMS Sql Case Study]
@@ -194,7 +197,9 @@ The Highest Cost Shipping Methoed is **Delivery Truck**.
 
 ### 7.0       Small Business Customer with the highest Sales
 
-              SELECT Top 10 Customer_Name, SUM(Sales) AS Total_sales
+#####         Top 10 Small Business Customer 
+
+              SELECT Top 1 Customer_Name, SUM(Sales) AS Total_sales
               FROM [KMS Sql Case Study]
               WHERE Customer_Segment = 'Small Business'
               GROUP BY Customer_Name
@@ -202,17 +207,28 @@ The Highest Cost Shipping Methoed is **Delivery Truck**.
 
 ![Small Business Custom Top 1](https://github.com/user-attachments/assets/9d815a78-ec7a-43ed-9c66-12c54a756a98)
 
+#####         Top 10 Small Business Customer 
+
+              SELECT Top 10 Customer_Name, SUM(Sales) AS Total_sales
+              FROM [KMS Sql Case Study]
+              WHERE Customer_Segment = 'Small Business'
+              GROUP BY Customer_Name
+              ORDER BY Total_sales DESC
+
 ![Small Business with Highest Sales ](https://github.com/user-attachments/assets/f2b8cabc-8874-40bf-9c56-8e31d8e9134f)
 
 
 ### 8.0       Corporate customer with the most placed number of orders in 2009 - 2012
+##### Top 1 
 
-              Select Top 1 Customer_Name, Count(Order_ID) As Total_Orders
+             Select Top 1 Customer_Name, Count(Order_ID) As Total_Orders
               From [KMS Sql Case Study]
               WHERE Customer_Segment = 'Corporate'
               And Order_Date Between '2009-01-01' and '2012-12-31'
               Group By Customer_Name
               Order By Total_Orders Desc
+              
+**Top 1** Corporate Customer with the Highest Order is **Adam Hart** with 27 Orders.
 
 ![Corporate Customers Top 1](https://github.com/user-attachments/assets/9b487ac6-031c-45bd-b899-e2046c2ffb5a)
 
