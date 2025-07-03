@@ -5,7 +5,7 @@ Kultra Mega Stores (KMS), headquartered in Lagos, specialises in office supplies
 
 ## PROJECT OVERVIEW
 This project aims to analyse the sales performance of Kulta Mega Stores in the Abuja Division to present key findings, insights and recommendations that will support business decision making. Two Datasets (**KMS Sql Case Study** and **Order_Status**)
-were used for this analysis. The **KMS Sql Case Study** contained all the information about the **Customers** and the **Products**, while the  **Order_Status** contained informations of Customers that returned **Orders**, their **Order Status and  IDs**. 
+were used for this analysis. The **KMS Sql Case Study** contained all the information about the **Customers**, **Products**, **Ship Mode** etc. while the  **Order_Status** contained informations of Customers that returned **Orders**  (**Order Status and  IDs**). 
 
 ## Key focus areas include:
   1. Which product category had the highest sales? 
