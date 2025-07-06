@@ -1,34 +1,19 @@
 # KULTRA MEGA STORES (KMS) SALES ANALYSIS 
 
-## ABOUT THE COMPANY
-Kultra Mega Stores (KMS), headquartered in Lagos, specialises in office supplies and furniture. Its customer base includes individual consumers, small businesses (retail), and large corporate clients (wholesale) across Lagos, Nigeria. 
-
 ## PROJECT OVERVIEW
-This project aims to analyse the sales performance of Kulta Mega Stores in the Abuja Division to present key findings, insights and recommendations that will support business decision making. Two Datasets (**KMS Sql Case Study** and **Order_Status**)
-were used for this analysis. The **KMS Sql Case Study** contained all the information about the **Customers**, **Products**, **Ship Mode** etc. while the  **Order_Status** contained informations of Customers that returned **Orders**  (**Order Status and  IDs**). 
+Kultra Mega Stores (KMS), a Lagos-based office supply and furniture company, engaged in a Business Intelligence project to analyze historical sales and order data for its Abuja division. The provided dataset includes transactional records from 2009 to 2012 across multiple customer segments and product categories. This project leverages SQL-based analysis and data cleaning to extract actionable insights that can guide management in improving operational efficiency, customer retention, and profitability. The final analysis includes a detailed look at customer behavior, shipping efficiency, and regional performance.
 
-## Key focus areas include:
-  1. Which product category had the highest sales? 
+## Objectives
 
-  2. What are the Top 3 and Bottom 3 regions in terms of sales? 
+1. Identify top-performing products, regions, and customers by sales and profit.
 
-  3. What were the total sales of appliances in Ontario? 
+2. Analyze shipping costs relative to order priority and shipping method.
 
-  4. Advise the management of KMS on what to do to increase the revenue from the bottom 10 customers 
+3. Profile customer segments including return behavior and engagement levels.
 
-  5. KMS incurred the most shipping cost using which shipping method? 
+4. Recommend strategies to boost revenue from underperforming customers.
 
-  6. Who are the most valuable customers, and what products or services do they typically purchase? 
-
-  7. Which small business customer had the highest sales? 
-
-  8. Which Corporate Customer placed the most number of orders in 2009 – 2012? 
-
-  9. Which consumer customer was the most profitable one? 
-
-  10. Which customer returned items, and what segment do they belong to? 
-
-  11. If the delivery truck is the most economical but the slowest shipping method and Express Air is the fastest but the most expensive one, do you think the company appropriately spent       shipping costs based on the Order Priority?
+5. Provide management with a data-driven foundation for decision-making.
 
 ## TOOLS USED FOR THIS ANALYSIS
 The tool for this analysis is Microsoft SQL Server Management Studio (SSMS) and can be downloaded through this link (https://learn.microsoft.com/en-us/ssms/install/install)
@@ -300,6 +285,11 @@ From the analysis, 419 Customers Actually returned their Goods.
 ![Q 10](https://github.com/user-attachments/assets/fb5e8644-cbd9-4a56-a515-542f9b6ea83c)
 
 Based on the analysis of KMS’s shipping costs relative to order priority, it’s evident that the company did not consistently align its shipping strategy with urgency levels. Express Air, the fastest and most expensive option, was used not only for Critical and High priority orders but also for Low and Not Specified ones, which is not cost-efficient. On the other hand, Delivery Truck, the slowest and cheapest method, was also used for Critical orders, potentially delaying urgent deliveries. While Regular Air was used fairly evenly, the absence of a clear shipping policy by priority suggests inefficiencies. An optimal strategy would restrict Express Air to truly urgent shipments and assign Delivery Truck only to low-priority orders. Aligning shipping modes with order urgency would significantly reduce costs without compromising service quality. KMS should consider implementing rules-based shipping decisions to optimize logistics performance and improve profitability.
+
+## Conclusion
+
+The analysis provided a detailed view of KMS's sales performance, shipping efficiency, and customer behavior from 2009 to 2012. Key insights revealed opportunities to optimize logistics, better serve high-value customers, and uplift engagement among low-performing clients. By implementing the outlined recommendations, KMS can significantly enhance operational efficiency, customer satisfaction, and overall profitability in the Abuja division and beyond.
+
 
 ### For the complete SQL Queries, click on the link below
 [https://drive.google.com/file/d/1k1lgpUmXcsUzNEON6nUwU3_N65gWNbQH/view?usp=drive_link]
